@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type = Application
+Name=Slideshow Image Changer
+Comment=Slideshow Image Changer
+Exec=/home/pi/PicturePi/scripts/pictureframe.sh
+Terminal=true
