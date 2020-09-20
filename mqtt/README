@@ -1,0 +1,42 @@
+SUMMARY
+=======
+
+This script will sit and listen for MQTT messages and then act upon them to turn
+USB connected relays on and off.  The topic it subscribes to is /raw/`hostname
+-f`/usb-relay/#, and it takes the last component of the topic as the relay
+number to control.
+It was originally written as a hack to control a USB relay from Domoticz, and
+whilst it could be made to understand the JSON output of the 3rd party mqtt.js
+it was decided to keep things simple, and to use the On and Off Actions built
+into Domoticz to trigger simple mosquitto_pub events.
+
+The format of such an event would be script://///usr/bin/mosquitto_pub -h
+mqtt.vpn.glasgownet.com -t /raw/wmlp1000.vpn.glasgownet.com/usb-relay/1 -m 1 to
+turn on relay 1
+
+INSTALL
+=======
+
+The latest Mosquitto libraries are required. 
+If on Ubuntu, sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa; apt-get update
+
+sudo apt-get install python-mosquitto python-serial git
+mkdir /etc/mqtt-usb-relay/
+git clone git://github.com/kylegordon/mqtt-usb-relay.git /usr/local/mqtt-usb-relay/
+cp /usr/local/mqtt-usb-relay/mqtt-usb-relay.cfg.example /etc/mqtt-usb-relay/mqtt-usb-relay.cfg
+cp /usr/local/mqtt-usb-relay/mqtt-usb-relay.init /etc/init.d/mqtt-usb-relay
+update-rc.d mqtt-usb-relay defaults
+cp /usr/local/mqtt-usb-relay/mqtt-usb-relay.default /etc/default/mqtt-usb-relay
+## Edit /etc/default/mqtt-usb-relay and /etc/mqtt-usb-relay/mqtt-usb-relay.cfg to suit
+/etc/init.d/mqtt-usb-relay start
+
+USE
+===
+
+Publish 1 or 0 to an appropriate topic, such as
+/raw/wmlp1000.vpn.glasgownet.com/usb-relay/1
+
+With Domoticz, using a dummy switch if desired, enter this into the On or Off
+Action field 
+
+script://///usr/bin/mosquitto_pub -h mqtt.vpn.glasgownet.com -t /raw/wmlp1000.vpn.glasgownet.com/usb-relay/1 -m 1
