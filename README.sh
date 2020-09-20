@@ -17,7 +17,7 @@ sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
 #cp pictureframe.desktop /etc/xdg/autostart/
 
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
-sudo cp ~/PicuturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
+sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
 sudo cp ~/PicturePi/pictureframe.desktop /etc/xdg/autostart/
 
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
