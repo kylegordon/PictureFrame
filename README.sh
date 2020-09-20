@@ -8,11 +8,16 @@
 #Wireless details
 #Enable wait for network
 
+TFMVER=2.4.3
 
 sudo apt-get update
-sudo apt-get install -y nfs-common openssh-server
+sudo apt-get install -y nfs-common openssh-server wget nginx
 sudo /etc/init.d/ssh restart
 sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
+
+wget https://github.com/prasathmani/tinyfilemanager/archive/${TFMVER}.tar.gz -O /tmp/tinyfilemanager.tar.gz
+tar -zxvf /tmp/tinyfilemanager.tar.gz --directory /tmp/
+mv /tmp/tinyfilemanager-${TFMVER}/* /var/www/
 
 #cp pictureframe.desktop /etc/xdg/autostart/
 
