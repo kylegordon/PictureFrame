@@ -29,8 +29,8 @@ echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures
 
 # Use sudo raspi-config again to enable auto-login to desktop
 
-30 8 * * 1-5 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
-30 16 * * 1-5 /usr/bin/tvservice -o 2>&1
+sudo cp cronjobs/morning_reboot /etc/cron.d/morning_reboot
+sudo cp cronjobs/on_off_schedule /etc/cron.d/on_off_schedule
 
 # Use something to maintain a read-only SD card
 http://blog.pi3g.com/2014/04/make-raspbian-system-read-only/
@@ -38,25 +38,4 @@ http://blog.pi3g.com/2014/04/make-raspbian-system-read-only/
 https://www.raspberrypi.org/blog/adafruits-read-only/
 
 All the scheduling guff below should really be done through home-assistant, by sharing a SSH key and having scripts that remote in and run these commands directly.
-
-Crontab contents
-################
-
-# TBH, this should be automated through home-assistant
-
-# On all weekend
-0 7 * * 6-7 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
-30 23 * * 6-7 /usr/bin/tvservice -o 2>&1
-
-# On in the morning during the work week
-0 7 * * 1-5 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
-30 8 * * 1-5 /usr/bin/tvservice -o 2>&1
-
-# On all evening during the work week
-30 17 * * 1-5 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
-30 23 * * 1-5 /usr/bin/tvservice -o 2>&1
-
-Also, in /etc/cron.d/morning_reboot
-
-0 7 * * * root /sbin/reboot
 

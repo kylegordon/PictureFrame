@@ -1,0 +1,11 @@
+# On all weekend
+0 7 * * 6-7 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
+30 23 * * 6-7 /usr/bin/tvservice -o 2>&1
+
+# On in the morning during the work week
+0 7 * * 1-5 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
+30 8 * * 1-5 /usr/bin/tvservice -o 2>&1
+
+# On all evening during the work week
+30 17 * * 1-5 /usr/bin/tvservice -p && sleep 10 && DISPLAY=:0.0 /usr/bin/xset -dpms 2>&1
+30 23 * * 1-5 /usr/bin/tvservice -o 2>&1
