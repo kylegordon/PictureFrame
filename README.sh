@@ -37,8 +37,10 @@ echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures
 
 # Use sudo raspi-config again to enable auto-login to desktop
 
+# Reboot every morning. Absorb into Pi user crontab later.
 sudo cp ~/PicturePi/cronjobs/morning_reboot /etc/cron.d/morning_reboot
-sudo cp ~/PicturePi/cronjobs/on_off_schedule /etc/cron.d/on_off_schedule
+# Import crontab as Pi user
+crontab ~/PicturePi/cronjobs/on_off_schedule
 
 # Use something to maintain a read-only SD card
 http://blog.pi3g.com/2014/04/make-raspbian-system-read-only/
