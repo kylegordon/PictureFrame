@@ -14,6 +14,7 @@ sudo apt-get update
 sudo apt-get install -y git
 git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 sudo apt-get install -y nfs-common openssh-server wget nginx php-fpm
+sudo apt-get install -y inotify-tools
 sudo /etc/init.d/ssh restart
 sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
 sudo apt-get remove --purge xscreensaver xscreensaver-data
