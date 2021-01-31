@@ -41,8 +41,6 @@ sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.targ
 
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
 
-# Use sudo raspi-config again to enable auto-login to desktop
-
 # Reboot every morning. Absorb into Pi user crontab later.
 sudo cp ~/PicturePi/cronjobs/morning_reboot /etc/cron.d/morning_reboot
 # Import crontab as Pi user
