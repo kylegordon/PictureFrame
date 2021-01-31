@@ -1,0 +1,23 @@
+--- index.php	2018-12-19 18:36:16.000000000 +0000
++++ newindex.php	2021-01-30 21:12:06.345633595 +0000
+@@ -17,11 +17,11 @@
+ 	
+ 	//	----------- CONFIGURATION START ------------
+ 
+-	define('GALLERY_ROOT', './');
++	define('GALLERY_ROOT', './Pictures/');
+ 	define('DATA_ROOT', './_sfpg_data/');
+ 	define('SECURITY_PHRASE', '');
+ 	define('PASSWORD', '');
+-	define('ADMIN', FALSE);
++	define('ADMIN', TRUE);
+ 
+ 	define('DIR_NAME_FILE', '_name.txt');
+ 	define('DIR_THUMB_FILE', '_image.jpg');
+@@ -3767,4 +3767,4 @@
+ 		'</body>';
+ 	}
+ 	echo '</html>';
+-?>
+\ No newline at end of file
++?>

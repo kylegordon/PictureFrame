@@ -14,6 +14,7 @@ sudo apt-get update
 sudo apt-get install -y git
 git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 sudo apt-get install -y nfs-common openssh-server wget nginx php-fpm
+sudo apt-get install -y inotify-tools
 sudo /etc/init.d/ssh restart
 sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
 sudo apt-get remove --purge xscreensaver xscreensaver-data
@@ -23,18 +24,26 @@ sudo systemctl restart php7.3-fpm.service
 wget https://github.com/prasathmani/tinyfilemanager/archive/${TFMVER}.tar.gz -O /tmp/tinyfilemanager.tar.gz
 tar -zxvf /tmp/tinyfilemanager.tar.gz --directory /tmp/
 sudo mv /tmp/tinyfilemanager-${TFMVER}/* /var/www/html/
+# Place the inotify watcher into systemd
+sudo cp inotify.service /etc/systemd/system/
 
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
 sudo cp ~/PicturePi/pictureframe.desktop /etc/xdg/autostart/
 sudo cp ~/PicturePi/nginx-site.conf /etc/nginx/sites-available/default
 
+# Should do the same job as setting raspi-config autologin to Graphical Pi Desktop
+sudo rm /etc/systemd/system/default.target
+sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
 
 # Use sudo raspi-config again to enable auto-login to desktop
 
+# Reboot every morning. Absorb into Pi user crontab later.
 sudo cp ~/PicturePi/cronjobs/morning_reboot /etc/cron.d/morning_reboot
-sudo cp ~/PicturePi/cronjobs/on_off_schedule /etc/cron.d/on_off_schedule
+# Import crontab as Pi user
+crontab ~/PicturePi/cronjobs/on_off_schedule
 
 # Use something to maintain a read-only SD card
 http://blog.pi3g.com/2014/04/make-raspbian-system-read-only/
