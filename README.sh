@@ -8,22 +8,25 @@
 #Wireless details
 #Enable wait for network
 
-TFMVER=2.4.3
+SFPGVER=4.7.1
 
 sudo apt-get update
 sudo apt-get install -y git
 git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
-sudo apt-get install -y nfs-common openssh-server wget nginx php-fpm
 sudo apt-get install -y inotify-tools
+sudo apt-get install -y nfs-common openssh-server wget nginx php-fpm php-gd
 sudo /etc/init.d/ssh restart
 sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
 sudo apt-get remove --purge xscreensaver xscreensaver-data
 
 sudo systemctl restart php7.3-fpm.service
 
-wget https://github.com/prasathmani/tinyfilemanager/archive/${TFMVER}.tar.gz -O /tmp/tinyfilemanager.tar.gz
-tar -zxvf /tmp/tinyfilemanager.tar.gz --directory /tmp/
-sudo mv /tmp/tinyfilemanager-${TFMVER}/* /var/www/html/
+#Obtain Single File PHP Gallery from http://sye.dk/sfpg/
+wget http://sye.dk/sfpg/Single_File_PHP_Gallery_${SFPGVER}.zip -O /tmp/sfpg.zip
+sudo unzip /tmp/sfpg.zip index.php -d /var/www/html/
+patch -d /var/www/html/ < index.patch
+sudo chown www-data. /var/www/html/index.php
+
 # Place the inotify watcher into systemd
 sudo cp inotify.service /etc/systemd/system/
 
