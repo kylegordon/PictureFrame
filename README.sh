@@ -11,15 +11,24 @@
 SFPGVER=4.7.1
 
 sudo apt-get update
-sudo apt-get install -y git
-git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
-sudo apt-get install -y inotify-tools
-sudo apt-get install -y nfs-common openssh-server wget nginx php-fpm php-gd
-sudo /etc/init.d/ssh restart
-sudo apt-get install -y feh lightdm raspberrypi-ui-mods watchdog vim
+sudo apt-get install -y git \
+                        inotify-tools \
+                        nfs-common \
+                        openssh-server \
+                        wget \
+                        nginx \
+                        php-fpm \
+                        php-gd \
+                        feh \
+                        lightdm \
+                        raspberrypi-ui-mods \
+                        watchdog \
+                        vim
 sudo apt-get remove --purge xscreensaver xscreensaver-data
-
+sudo /etc/init.d/ssh restart
 sudo systemctl restart php7.3-fpm.service
+
+git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 
 #Obtain Single File PHP Gallery from http://sye.dk/sfpg/
 wget http://sye.dk/sfpg/Single_File_PHP_Gallery_${SFPGVER}.zip -O /tmp/sfpg.zip
