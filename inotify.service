@@ -1,0 +1,19 @@
+[Unit]
+Description = iNotifyService
+After = network.target
+
+[Service]
+PIDFile = /run/inotifyservice/inotifyservice.pid
+User = root
+Group = root
+WorkingDirectory = /home/pi/PicturePi/
+ExecStartPre = /bin/mkdir /run/inotifyservice
+ExecStartPre = /bin/chown -R root:root /run/inotifyservice
+ExecStart = /bin/bash /home/pi/PicturePi/inotifywatch.sh
+ExecReload = /bin/kill -s HUP $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+ExecStopPost = /bin/rm -rf /run/inotifyservice
+PrivateTmp = true
+
+[Install]
+WantedBy = multi-user.target

@@ -24,6 +24,8 @@ sudo systemctl restart php7.3-fpm.service
 wget https://github.com/prasathmani/tinyfilemanager/archive/${TFMVER}.tar.gz -O /tmp/tinyfilemanager.tar.gz
 tar -zxvf /tmp/tinyfilemanager.tar.gz --directory /tmp/
 sudo mv /tmp/tinyfilemanager-${TFMVER}/* /var/www/html/
+# Place the inotify watcher into systemd
+sudo cp inotify.service /etc/systemd/system/
 
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
