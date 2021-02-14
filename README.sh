@@ -33,8 +33,10 @@ git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 #Obtain Single File PHP Gallery from http://sye.dk/sfpg/
 wget http://sye.dk/sfpg/Single_File_PHP_Gallery_${SFPGVER}.zip -O /tmp/sfpg.zip
 sudo unzip /tmp/sfpg.zip index.php -d /var/www/html/
-patch -d /var/www/html/ < index.patch
 sudo chown www-data. /var/www/html/index.php
+
+# Patch the configuration file to our own taste
+patch -d /var/www/html/ < index.patch
 
 # Place the inotify watcher into systemd
 sudo cp inotify.service /etc/systemd/system/
