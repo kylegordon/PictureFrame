@@ -10,7 +10,7 @@ on:
 
 jobs:
   lighttpd:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Getting your configuration from GitHub
-      uses: actions/checkout@v1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
