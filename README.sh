@@ -13,14 +13,6 @@ git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 # Place the inotify watcher into systemd
 sudo cp inotify.service /etc/systemd/system/
 
-sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
-sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
-sudo cp ~/PicturePi/pictureframe.desktop /etc/xdg/autostart/
-
-# Should do the same job as setting raspi-config autologin to Graphical Pi Desktop
-sudo rm /etc/systemd/system/default.target
-sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.target
-
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
 
 # Reboot every morning. Absorb into Pi user crontab later.
