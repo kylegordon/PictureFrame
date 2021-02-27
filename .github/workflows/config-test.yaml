@@ -1,0 +1,16 @@
+---
+name: PictureFrame CI
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: 0 12 * * *
+
+jobs:
+  lighttpd:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Getting your configuration from GitHub
+      uses: actions/checkout@v1
