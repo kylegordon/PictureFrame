@@ -8,26 +8,6 @@
 #Wireless details
 #Enable wait for network
 
-
-sudo apt-get update
-sudo apt-get install -y git \
-                        inotify-tools \
-                        nfs-common \
-                        openssh-server \
-                        wget \
-                        lighttpd \
-                        php-fpm \
-                        php-gd \
-                        php-cgi \
-                        feh \
-                        lightdm \
-                        raspberrypi-ui-mods \
-                        watchdog \
-                        vim
-sudo apt-get remove --purge xscreensaver xscreensaver-data
-sudo /etc/init.d/ssh restart
-
-
 git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 
 # Place the inotify watcher into systemd
