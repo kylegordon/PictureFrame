@@ -16,9 +16,10 @@ sudo apt-get install -y git \
                         nfs-common \
                         openssh-server \
                         wget \
-                        nginx \
+                        lighttpd \
                         php-fpm \
                         php-gd \
+                        php-cgi \
                         feh \
                         lightdm \
                         raspberrypi-ui-mods \
@@ -26,7 +27,7 @@ sudo apt-get install -y git \
                         vim
 sudo apt-get remove --purge xscreensaver xscreensaver-data
 sudo /etc/init.d/ssh restart
-sudo systemctl restart php7.3-fpm.service
+
 
 git clone https://github.com/kylegordon/pictureframe ~/PicturePi/
 
@@ -44,7 +45,6 @@ sudo cp inotify.service /etc/systemd/system/
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
 sudo cp ~/PicturePi/pictureframe.desktop /etc/xdg/autostart/
-sudo cp ~/PicturePi/nginx-site.conf /etc/nginx/sites-available/default
 
 # Should do the same job as setting raspi-config autologin to Graphical Pi Desktop
 sudo rm /etc/systemd/system/default.target
@@ -64,3 +64,4 @@ https://www.raspberrypi.org/blog/adafruits-read-only/
 
 All the scheduling guff below should really be done through home-assistant, by sharing a SSH key and having scripts that remote in and run these commands directly.
 
+sudo ./20-configure-lighttpd.sh
