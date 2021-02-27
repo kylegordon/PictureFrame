@@ -65,8 +65,5 @@ https://www.raspberrypi.org/blog/adafruits-read-only/
 
 All the scheduling guff below should really be done through home-assistant, by sharing a SSH key and having scripts that remote in and run these commands directly.
 
-sudo ./20-configure-lighttpd.sh
-sudo ./50-make-ap.sh
-
 # Things to customize after install
 # Access Point name, in /etc/hostapd/hostapd.conf
