@@ -15,4 +15,4 @@ sudo apt-get install -y git \
                         vim
 
 # Remove xscreensaver so that it doesn't take over the screen
-sudo apt-get remove --purge xscreensaver xscreensaver-data
+sudo apt-get remove --purge xscreensaver xscreensaver-data pulseaudio
