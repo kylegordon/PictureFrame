@@ -6,6 +6,8 @@ After=syslog.target network-online.target
 
 [Service]
 Type=simple
+User=root
+Group=pi
 ExecStart=/usr/bin/obexpushd -B -o /home/pi/Pictures/ -n
 Restart=on-failure
 RestartSec=10
