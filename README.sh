@@ -29,3 +29,10 @@ All the scheduling guff below should really be done through home-assistant, by s
 
 # Things to customize after install
 # Access Point name, in /etc/hostapd/hostapd.conf
+
+## Useful commands / changes
+
+Disable hostapd - systemctl mask hostapd ; systemctl disable hostapd ; reboot
+Enable hostapd  - systemctl unmask hostapd ; systemctl enable hostapd ; reboot
+
+Whilst gadget mode will allow IP access to the host computer, DNS requests are handled locally by DNSMasq. Disable 'captive portal' redirection by commenting out the 'address' line in /etc/dnsmasq.conf and then restart the service with sudo systemctl restart dnsmasq.service
