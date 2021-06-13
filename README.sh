@@ -29,3 +29,15 @@ All the scheduling guff below should really be done through home-assistant, by s
 
 # Things to customize after install
 # Access Point name, in /etc/hostapd/hostapd.conf
+
+## Using Gadget Mode
+### Ubuntu
+Plug the Raspberry Pi Zero USB connector into your computer as normal.
+Go into Network Settings
+Click on gear icon for the 'Netchip Ethernet' connection
+Select IPv4 tab
+Select Shared to other computers
+Click Apply
+
+After a few moments, the Pi will have an address likely in the 10.42.0.0 range. 
+If MDNS is still configured correctly, it will also be available under the .local domain, such as pictureframe.local
