@@ -67,6 +67,12 @@ http://blog.pi3g.com/2014/04/make-raspbian-system-read-only/
 
 https://www.raspberrypi.org/blog/adafruits-read-only/
 
+### Useful commands / changes
+
+Disable hostapd - systemctl mask hostapd ; systemctl disable hostapd ; reboot
+Enable hostapd  - systemctl unmask hostapd ; systemctl enable hostapd ; reboot
+
+Whilst gadget mode will allow IP access to the host computer, DNS requests are handled locally by DNSMasq. Disable 'captive portal' redirection by commenting out the 'address' line in /etc/dnsmasq.conf and then restart the service with sudo systemctl restart dnsmasq.service
 ###  Quirks
 My current home set up has this fstab entry due to pictures being stored on the central server
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
