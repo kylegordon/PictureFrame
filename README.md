@@ -51,6 +51,10 @@ Click Apply
 After a few moments, the Pi will have an address likely in the 10.42.0.0 range.
 If MDNS is still configured correctly, it will also be available under the .local domain, such as pictureframe.local
 
+Alternatively, nmcli might do the job with this...
+
+nmcli connection add con-name shared-pi type ethernet ifname enx3e93f9c1245b ipv4.method shared
+
 ### Scheduler
 Reboot every morning. Absorb into Pi user crontab later.
 sudo cp ~/PicturePi/cronjobs/morning_reboot /etc/cron.d/morning_reboot
@@ -76,3 +80,7 @@ Whilst gadget mode will allow IP access to the host computer, DNS requests are h
 ###  Quirks
 My current home set up has this fstab entry due to pictures being stored on the central server
 echo '172.24.32.5:/srv/nfs4/store/home/Pictures/PictureFrames/ /home/pi/Pictures/ nfs defaults,_netdev,vers=4,async 0 0' | sudo tee -a /etc/fstab
+
+https://dazeb.uk/adding-kali-pi-to-raspberry-pi-zero-w-and-updating-kernel-to-enable-monitor-mode/
+https://owlink.org/2019/05/16/howto-use-airdrop-on-raspberry-pi-3.html
+https://github.com/seemoo-lab/nexmon/tree/master/firmwares
