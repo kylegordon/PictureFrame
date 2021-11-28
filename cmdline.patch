@@ -1,5 +1,6 @@
 --- /boot/cmdline.txt	2021-05-18 12:56:44.000000000 +0100
 +++ /boot/cmdline.new	2021-05-18 13:03:44.000000000 +0100
 @@ -1,2 +1,2 @@
--console=serial0,115200 console=tty1 root=PARTUUID=c6d02a1c-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles
-+console=serial0,115200 console=tty1 root=PARTUUID=c6d02a1c-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles modules-load=dwc2,g_ether
+-dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=61d39b4c-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
++dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=61d39b4c-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
+
