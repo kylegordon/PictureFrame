@@ -28,10 +28,14 @@ Gadget mode permits TCP/IP over USB. Since the device will often exist in statio
 Things to customize after install
 Access Point name, in /etc/hostapd/hostapd.conf
 
+To determine firmware version, use sudo /opt/vc/bin/vcgencmd version
+
 ### Installing
 I think the picture frame needed lightdm or lxde installed....
 
 Initially, use sudo raspi-config to set the following options
+
+See https://github.com/kylegordon/PictureFrame/tree/noninteractive-raspi-config
 
 Hostname
 Wireless details
