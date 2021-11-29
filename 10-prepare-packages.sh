@@ -14,7 +14,8 @@ sudo apt-get install -y git \
                         watchdog \
                         vim \
                         build-essential \
-                        cmake
+                        cmake\
+                        bison
 
 # Remove xscreensaver so that it doesn't take over the screen
 sudo apt-get remove --purge xscreensaver xscreensaver-data \
