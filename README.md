@@ -3,25 +3,11 @@
 An open source picture frame project built upon a Raspberry Pi Zero. This was initially built/started as a project for two young friends of mine, who are not technically minded. All being well, it should be an easy method for someone interested in Raspberry Pi to make a system that a non-technical person can use.
 ## Goals
 
-- Bluetooth Support (Complete) - send files to the picture frame directly from an Android or Windows device
-- Airdrop Support (Incomplete) - send files to the picture frame directly from an Apple device
-- Access Point (Complete) - connect to the device and use a web based interface to manage existing files
 - Scheduler (Incomplete) - turn the display on and off at scheduled times.
-- Smart Reloading (Incomplete) - reload the slideshow application when a new file is uploaded.
-- Gadget Mode - access to the Pi by TCP/IP over the USB interface.
+- Smart Reloading (Incomplete) - reload the slideshow application when the USB stick is inserted.
 
-### Bluetooth Support
-Desirable in order to provide an easy to use method of sending files to the device, without having to connect wirelessly.
-Sending of files has been tested from Android devices and works as expected.
-### Airdrop Support
-Desirable in order to provide an easy to use method of sending files to the device, without having to connect wirelessly.
-This is the only way of sending files natively in the Apple ecosystem.
-### Access Point
-Rather than assuming access to someone elses home wifi, take the stance of providing an open access point to connect to. Use DNS capture and redirection to trigger the captive portal detection and offer up a management page such that existing files can be manipulated, such as rotation, renaming, deletion.
 ### Gadget Mode
-Gadget mode permits TCP/IP over USB. Since the device will often exist in station mode (access point), there may be times where the Pi Zero is inaccessible to a regular computer. By providing gadget mode, it can simply be plugged into the computer.
-
-
+Gadget mode permits TCP/IP over USB. There may be times where the Pi Zero is inaccessible to a regular computer. By providing gadget mode, it can simply be plugged into the computer.
 
 ## Notes
 
