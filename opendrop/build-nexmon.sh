@@ -12,15 +12,20 @@ if [[ ! -f /usr/lib/arm-linux-gnueabihf/libisl.so.10 ]]; then \
          /usr/lib/arm-linux-gnueabihf/libisl.so.10 && \
    cd ../../ ; fi
 
+# Build and install monitor mode firmware patch
+# ln -s /usr/lib/arm-linux-gnueabihf/libmpfr.so.6 /usr/lib/arm-linux-gnueabihf/libmpfr.so.4
+if [[ ! -f /usr/lib/arm-linux-gnueabihf/libmpfr.so.4 ]]; then \
+   cd buildtools/mpfr-3.1.4/ && autoreconf -f -r && ./configure && make && make install && \
+   ln -s /usr/local/lib/libmpfr.so \
+         /usr/lib/arm-linux-gnueabihf/libmpfr.so.4 && \
+   cd ../../ ; fi
+
 source setup_env.sh
 make
 cd utilities/nexutil/ && make && make install && cd ../../
 
-# Build and install monitor mode firmware patch
+# cd patches/bcm43430a1/7_45_41_46/nexmon/ # 7_45_41_46 no working
 cd patches/bcm43430a1/7_45_41_46/nexmon/
-
-ln -s /usr/lib/arm-linux-gnueabihf/libmpfr.so.6 /usr/lib/arm-linux-gnueabihf/libmpfr.so.4
-
 make
 make backup-firmware
 make install-firmware
