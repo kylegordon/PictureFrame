@@ -30,6 +30,8 @@ Access Point name, in /etc/hostapd/hostapd.conf
 
 To determine firmware version, use sudo /opt/vc/bin/vcgencmd version
 
+Some good info on using livestream to do youtube streaming, etc at https://www.instructables.com/Live-Picture-Frame-With-Raspberry-PI/
+
 ### Installing
 I think the picture frame needed lightdm or lxde installed....
 
