@@ -1,3 +1,6 @@
+# Enable autologin for user. Can only be done once lightdm is installed.
+sudo raspi-config nonint do_boot_behaviour B4 # Enable GUI and autologin
+
 # Place relevant symlinks to enable autostart of LXDE
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE/autostart
 sudo cp ~/PicturePi/autostart /etc/xdg/lxsession/LXDE-pi/autostart
