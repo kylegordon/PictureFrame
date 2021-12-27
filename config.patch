@@ -1,9 +1,0 @@
---- /boot/config.txt	2021-05-18 13:06:32.000000000 +0100
-+++ /boot/config.new	2021-05-18 13:07:44.000000000 +0100
-@@ -63,3 +63,6 @@
- 
- [all]
- #dtoverlay=vc4-fkms-v3d
-+
-+# Enable Gadget mode
-+dtoverlay=dwc2
