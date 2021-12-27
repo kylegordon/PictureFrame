@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if grep -q "dtoverlay=dwc2" /boot/config.txt; then
-    echo "Gadget mode already enabled"
+    echo "Gadget mode already enabled in config.txt"
 else
     echo "Enabling gadget mode : patching config.txt"
     if lsb_release -c | grep -q stretch; then
@@ -16,7 +16,7 @@ else
 fi
 
 if grep -q "modules-load=dwc2,g_ether" /boot/cmdline.txt; then
-    echo "Gadget mode already enabled"
+    echo "Gadget mode already enabled in cmdline.txt"
 else
     echo "Enabling gadget mode : patching cmdline.txt"
     # Use sed to append, not overwrite, the following to the end of /boot/config.txt
