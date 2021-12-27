@@ -1,9 +1,9 @@
---- /boot/config.txt	2021-05-18 13:06:32.000000000 +0100
-+++ /boot/config.new	2021-05-18 13:07:44.000000000 +0100
-@@ -63,3 +63,6 @@
+--- /boot/config.txt.original	2021-12-27 21:01:59.000000000 +0000
++++ /boot/config.txt	2021-12-27 21:02:51.000000000 +0000
+@@ -54,3 +54,6 @@
  
- [all]
- #dtoverlay=vc4-fkms-v3d
+ # Enable audio (loads snd_bcm2835)
+ dtparam=audio=on
 +
 +# Enable Gadget mode
 +dtoverlay=dwc2
