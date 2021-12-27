@@ -17,6 +17,6 @@ sudo apt-get install -y git \
                         cmake
 
 # Remove xscreensaver so that it doesn't take over the screen
-sudo apt-get remove --purge xscreensaver xscreensaver-data \
+sudo apt-get remove --purge -y xscreensaver xscreensaver-data \
                             pulseaudio libpulse0 pulseaudio-utils \
                             cups cups-browsed cups-client cups-core-drivers cups-daemon cups-filters cups-filters-core-drivers cups-ipp-utils cups-server-common cups-common cups-pk-helper cups-ppdc python3-cups
