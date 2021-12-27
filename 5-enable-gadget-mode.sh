@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if grep -q "dtcoverlay=dwc2" /boot/config.txt; then
+if grep -q "dtoverlay=dwc2" /boot/config.txt; then
     echo "Gadget mode already enabled"
 else
     echo "Enabling gadget mode : patching config.txt"
